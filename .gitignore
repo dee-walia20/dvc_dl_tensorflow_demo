@@ -137,3 +137,6 @@ research
 ./env
 # ignore the secrets file
 config/secrets.yaml
+
+#ignore data folder
+./data
