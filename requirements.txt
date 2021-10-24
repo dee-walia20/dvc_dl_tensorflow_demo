@@ -6,3 +6,6 @@ pandas
 tqdm
 PyYAML
 boto3
+
+#install local packages
+-e .
