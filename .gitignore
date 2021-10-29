@@ -140,4 +140,4 @@ config/secrets.yaml
 
 #ignore data folder
 ./data
-.artifacts
+./artifacts
