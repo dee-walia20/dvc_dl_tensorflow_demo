@@ -1,5 +1,5 @@
 artifacts:
-  ARTIFACTS_DR: artifacts
+  ARTIFACTS_DIR: artifacts
   TRAINED_MODEL_DIR: model
   BASE_MODEL_DIR: base_model
   BASE_MODEL_NAME: VGG16_base_model.h5
