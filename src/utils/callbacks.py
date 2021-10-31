@@ -2,7 +2,8 @@ import tensorflow as tf
 import os
 import time
 import joblib
-from src.utils.all_utils import timestamp
+from src.utils.all_utils import get_timestamp
+import logging
 
 
 def create_and_save_tensorboard_callback(callbacks_dir, tensorboard_log_dir):
@@ -15,7 +16,7 @@ def create_and_save_tensorboard_callback(callbacks_dir, tensorboard_log_dir):
     logging.info(f"Tensorboard callback is being saved at {tb_callback_filepath}")
 
 def create_and_save_checkpoint_callback(callbacks_dir, checkpoint_dir):
-    checkpoint_file_path = os.path.join(checkpoint_dir, "ckpt_model.h5")
+    checkpoint_file_path = os.path.join(callbacks_dir, "ckpt_model.h5")
     checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
         filepath=checkpoint_file_path, 
         save_best_only=True,

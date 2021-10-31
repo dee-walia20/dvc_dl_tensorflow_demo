@@ -1,8 +1,9 @@
 from src.utils.all_utils import read_yaml, create_directory
-from src.utils.callbacks.py import create_and_save_tensorboard_callback,  create_and_save_checkpoint_callback
+from src.utils.callbacks import create_and_save_tensorboard_callback,  create_and_save_checkpoint_callback
 import argparse
 import os
 import logging
+import joblib
 
 logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
 logs_dir = "logs"
@@ -27,7 +28,7 @@ def prepare_callbacks(config_path, params_path):
         )
 
     create_and_save_tensorboard_callback(callbacks_dir, tensorboard_log_dir)
-    create_and_save_checkpoint_callback(checkpoint_dir, callbacks_dir)
+    create_and_save_checkpoint_callback(callbacks_dir, callbacks_dir)
 
 
 if __name__ == "__main__":
