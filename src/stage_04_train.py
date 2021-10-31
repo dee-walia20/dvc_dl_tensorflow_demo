@@ -3,8 +3,9 @@ import argparse
 import os
 import logging
 import joblib
-from src.utils.model import load_full_model
+from src.utils.models import load_full_model
 from src.utils.callbacks import get_callbacks
+from src.utils.data_management import train_valid_generator
 
 
 logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
@@ -29,6 +30,12 @@ def train_model(config_path, params_path):
     callback_dir_path = os.path.join(artifacts_dir, artifacts["CALLBACKS_DIR"])
     callbacks = get_callbacks(callback_dir_path)
 
+    train_generator, valid_generator = train_valid_generator(
+        data_dir =artifacts["DATA_DIR"], 
+        IMAGE_SIZE=tuple(params["INPUT_SIZE"][:-1]),
+        BATCH_SIZE=params["BATCH_SIZE"],
+        do_data_augmentation=params["AUGMENTATION"]
+    )
 
 
 
